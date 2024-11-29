@@ -1,7 +1,35 @@
 {%extends 'main.html'%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block content%}
+            Welcome {{title}}
+        </title>
+
+        <body>
+            <h1> {{title}}</h1>
+
+            <p> Hello , {{user.name}} , You are {{user.age}} years old .</p>
+
+            <h2>items list</h2>
+            <ul>
+                {% for item in items%}
+                <li>
+                    {{items}}
+                </li>
+                {% endfor %}
+            </ul>
 
 
-{% block content%}
-<h1>home page</h1>
+            {% if user.age > 18%}
+            <p> you are an adult dear</p>
+            {%else%}
+            <p> you are underage</p>
+            {%endif%}
+            {% endblock content%}
+        </body>
+    </head>
+</html>
 
-{% endblock content%}
+

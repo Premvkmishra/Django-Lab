@@ -4,7 +4,14 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return render(request, 'home.html')
+    context = {
+        'title' : "My Django App",
+        'items' : ['apple' ,' ball' , 'cat'],
+        'user' : {
+            'name': 'Prem' , 'age' : 16
+        }
+    }
+    return render(request, 'home.html' , context)
 
 def room(request):
     return render(request , 'room.html')
