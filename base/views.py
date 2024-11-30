@@ -1,20 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
+from .models import Room
+
+
 
 
 def home(request):
-    context = {
-        'title' : "My Django App",
-        'items' : ['apple' ,' ball' , 'cat'],
-        'user' : {
-            'name': 'Prem' , 'age' : 16
-        }
-    }
+    rooms = Room.objects.all()         
+    context = {'rooms' : rooms}
     return render(request, 'home.html' , context)
 
-def room(request):
-    return render(request , 'room.html')
+def room(request  , pk):
+    room = Room.objects.get(id=pk)
+    context = { 'room' : room}
+    return render(request , 'room.html' , context)
 
 def Profile(request):
     return HttpResponse('Profile Page')

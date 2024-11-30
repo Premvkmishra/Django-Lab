@@ -10,6 +10,14 @@
         <body>
             <h1> {{title}}</h1>
 
+
+            <h2>Room List</h2>
+        <ul>
+            {% for room in rooms %}
+              <hr> <a href="/room"> <li>{{ room.name }}</li> <hr> </a>
+            {% endfor %}
+        </ul>
+
             <p> Hello , {{user.name}} , You are {{user.age}} years old .</p>
 
             <h2>items list</h2>
